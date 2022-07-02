@@ -1,0 +1,12 @@
+{
+  "name": "Fix WA Web Time Format",
+  "description": "Converts WhatsApp Web timestamps to 24-hour format",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["*://web.whatsapp.com/*"],
+      "js": ["main.js"]
+    }
+  ]
+}
