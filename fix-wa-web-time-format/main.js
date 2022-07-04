@@ -9,19 +9,20 @@ const fixFormat = (text) =>
 
 const fixTextNode = (textNode) => {
   const fixed = fixFormat(textNode.textContent);
-  if (fixed !== textNode.textContent)
+  if (fixed !== textNode.textContent) {
     setTimeout(() => {
       textNode.textContent = fixed;
     }, 0);
-  const obs = new MutationObserver((mutations) => {
-    mutations.forEach(
-      (mutation) =>
-        mutation.type === "characterData" && fixTextNode(mutation.target)
-    );
-  });
-  obs.observe(textNode, {
-    characterData: true,
-  });
+    const obs = new MutationObserver((mutations) => {
+      mutations.forEach(
+        (mutation) =>
+          mutation.type === "characterData" && fixTextNode(mutation.target)
+      );
+    });
+    obs.observe(textNode, {
+      characterData: true,
+    });
+  }
 };
 
 const fixNode = (node) =>
