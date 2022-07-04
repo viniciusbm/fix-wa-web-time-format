@@ -31,7 +31,11 @@ const fixNode = (node) =>
         ".fewfhwl7", // message
         "._1i_wG", // last message (on the left)
         "._2YPr_", // last seen
-        "._1qB8f", // status, message read, message delivered
+        "._1qB8f", // status (from other people), message read, message delivered
+        ".fVMYC", // status (own)
+        "._5SjOa", // status being displayed
+        "._2XN6O", // last status (own)
+        "._1qB8f span", // status read
       ].join(",")
     )
     .forEach((e) => {
