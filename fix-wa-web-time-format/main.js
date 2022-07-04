@@ -9,9 +9,10 @@ const fixFormat = (text) =>
 
 const fixTextNode = (textNode) => {
   const fixed = fixFormat(textNode.textContent);
-  if (fixed !== textNode.textContent) {
-    textNode.textContent = fixed;
-  }
+  if (fixed !== textNode.textContent)
+    setTimeout(() => {
+      textNode.textContent = fixed;
+    }, 0);
   const obs = new MutationObserver((mutations) => {
     mutations.forEach(
       (mutation) =>
@@ -42,9 +43,8 @@ const fixNode = (node) =>
       if (
         e.childNodes.length == 1 &&
         e.childNodes[0].nodeType == Node.TEXT_NODE
-      ) {
+      )
         fixTextNode(e.childNodes[0]);
-      }
     });
 
 const observer = new MutationObserver((mutations) =>
